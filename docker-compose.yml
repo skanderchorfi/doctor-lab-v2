@@ -1,0 +1,11 @@
+version: '2.7'
+
+services:
+  database:
+    image: postgres:alpine
+    environment:
+      POSTGRES_PASSWORD: root
+    restart: on-failure
+    ports:
+    - 5432:5432
+
