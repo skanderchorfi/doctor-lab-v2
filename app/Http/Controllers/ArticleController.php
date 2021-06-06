@@ -53,7 +53,7 @@ class ArticleController extends Controller
             new ArticleCreatedNotification($article)
         );
 
-        return redirect()->route('article.index');
+        return redirect()->route('article.index')->with('status', 'Article Créer avec success');
     }
 
     public function read(Article $article)

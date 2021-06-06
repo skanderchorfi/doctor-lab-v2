@@ -2,6 +2,18 @@
 
 @section('content')
     <div class="container-fluid">
+        @if (session('status'))
+            <div class="row">
+                <div class="col-md-10">
+                    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                        {{ session('status') }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <i class="tim-icons icon-simple-remove"></i>
+                        </button>
+                      </div>
+                </div>
+            </div>
+        @endif
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card">
