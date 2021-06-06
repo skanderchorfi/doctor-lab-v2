@@ -49,8 +49,8 @@ class NewEntriesChartController extends ChartController
                 ->count();
             $articles[] = Article::whereDate('created_at', today()->subDays($days_backwards))
                 ->count();
-            $categories[] = Categorie::whereDate('created_at', today()->subDays($days_backwards))
-                ->count();
+            //$categories[] = Categorie::whereDate('created_at', today()->subDays($days_backwards))
+            //    ->count();
             //$tags[] = Tag::whereDate('created_at', today()->subDays($days_backwards))
             //                ->count();
         }
@@ -63,9 +63,9 @@ class NewEntriesChartController extends ChartController
             ->color('rgb(96, 92, 168)')
             ->backgroundColor('rgba(96, 92, 168, 0.4)');
 
-        $this->chart->dataset('Categories', 'line', $categories)
-            ->color('rgb(255, 193, 7)')
-            ->backgroundColor('rgba(255, 193, 7, 0.4)');
+        //$this->chart->dataset('Categories', 'line', $categories)
+            //->color('rgb(255, 193, 7)')
+            //->backgroundColor('rgba(255, 193, 7, 0.4)');
 
         /*$this->chart->dataset('Tags', 'line', $tags)
             ->color('rgba(70, 127, 208, 1)')

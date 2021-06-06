@@ -18,7 +18,7 @@ class AdminSeeder extends Seeder
     {
         $faker = Factory::create();
 
-        for ($i = 0; $i < 5; $i++)
+        for ($i = 6; $i < 10; $i++)
         {
             Admin::create([
                 'name' => $faker->userName,

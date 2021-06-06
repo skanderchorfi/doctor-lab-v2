@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Data\HommeFemmeChart;
+use App\Http\Controllers\Data\TrancheAgeController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -73,3 +75,6 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'App\Http\Controllers\ProfileController@password']);
 });
 
+
+Route::get('/data/homme-femme-chart', [HommeFemmeChart::class, 'data']);
+Route::get('/data/tranche-age', [TrancheAgeController::class, 'data']);

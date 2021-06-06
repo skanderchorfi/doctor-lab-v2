@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin\Charts;
 
+use App\Models\Article;
 use Backpack\CRUD\app\Http\Controllers\ChartController;
 use ConsoleTVs\Charts\Classes\Chartjs\Chart;
-use App\Models\Categorie ;
 use Illuminate\Support\Facades\DB;
 
 /**
@@ -18,13 +18,9 @@ class ArticlePartitionChartController extends ChartController
     {
         $this->chart = new Chart();
 
-        $categories = Categorie::all('nom')
-            ->map(function ($elm) {return $elm->nom;} )
-            ->toArray();
-
         // MANDATORY. Set the labels for the dataset points
         $this->chart->labels(
-            $categories
+            Article::TYPES
         );
 
         // RECOMMENDED. Set URL that the ChartJS library should call, to get its data using AJAX.
@@ -42,15 +38,21 @@ class ArticlePartitionChartController extends ChartController
      */
      public function data()
      {
-         $articlesGrouped = DB::table('articles')
-             ->select('categorie_id', DB::raw('count(*) as total'))
-             ->groupBy('categorie_id')
-             ->get();
 
-         foreach ($articlesGrouped as $elm) {
-             $this->chart->dataset($elm->categorie_id, 'pie', [
-                 $elm->total,
-             ]);
-         }
+        $articleType1 = Article::query()->where('type', Article::TYPE_1)->count();
+        $articleType2 = Article::query()->where('type', Article::TYPE_2)->count();
+        $articleTypeGestationel = Article::query()->where('type', Article::TYPE_GESTATIONEL)->count();
+
+        $this->chart->dataset('Repartition des Article', 'pie', [
+            $articleType1, $articleType2, $articleTypeGestationel
+        ])->color([
+            'rgba(85, 230, 193,1.0)',
+            'rgba(234, 181, 67,1.0)',
+            'rgba(253, 114, 114,1.0)'
+        ])->backgroundColor([
+            'rgba(85, 230, 193,1.0)',
+            'rgba(234, 181, 67,1.0)',
+            'rgba(253, 114, 114,1.0)'
+        ]);
      }
 }

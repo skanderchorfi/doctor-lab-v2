@@ -23,4 +23,8 @@ Route::group([
         ->name('charts.new-entries');
     Route::get('charts/weekly-users', 'Charts\WeeklyUsersChartController@response')->name('charts.weekly-users.index');
     Route::get('charts/article-partition', 'Charts\ArticlePartitionChartController@response')->name('charts.article-partition.index');
+    Route::get('charts/n-h-l-pie-chart', 'Charts\NHLPieChartChartController@response')->name('charts.n-h-l-pie-chart.index');
+    Route::get('charts/bar-tranche-age', 'Charts\BarTrancheAgeChartController@response')->name('charts.bar-tranche-age.index');
+    Route::get('charts/repartition-utilisateur', 'Charts\RepartitionUtilisateurChartController@response')->name('charts.repartition-utilisateur.index');
+    Route::get('charts/today-users', 'Charts\TodayUsersChartController@response')->name('charts.today-users.index');
 }); // this should be the absolute last line of this file

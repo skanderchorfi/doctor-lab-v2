@@ -21,8 +21,8 @@
                                 <div class="form-group">
                                     <label for="categorie">Categorie</label>
                                     <select name="categorie" id="categorie" class="form-control">
-                                        @foreach(\App\Models\Categorie::all() as $categorie)
-                                            <option value="{{ $categorie->id }}">{{ $categorie->nom }}</option>
+                                        @foreach(\App\Models\Article::TYPES as $type)
+                                            <option value="{{ $type }}">{{ $type }}</option>
                                         @endforeach
                                     </select>
                                 </div>

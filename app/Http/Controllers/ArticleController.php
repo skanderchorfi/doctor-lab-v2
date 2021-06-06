@@ -34,17 +34,17 @@ class ArticleController extends Controller
         $this->validate($request, [
             'titre' => 'required',
             'contenu' => 'required',
-            'categorie' => 'required'
+            'type' => 'required'
         ]);
-        $categorie = Categorie::find($request->categorie);
+        //$categorie = Categorie::find($request->categorie);
         $user = auth()->user();
 
         $article = new Article([
             'titre' => $request->titre,
-            'contenu' => $request->contenu
+            'contenu' => $request->contenu,
+            'type' => $request->type
         ]);
 
-        $article->categorie()->associate($categorie);
         $article->user()->associate($user);
         $article->save();
 

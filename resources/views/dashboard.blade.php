@@ -5,24 +5,20 @@
         <div class="col-6">
             <div class="card card-chart">
                 <div class="card-header">
-                    Chart 1
+                    Homme Femme Chart
                 </div>
-                <div class="card-body">
-                    <div class="chart-area">
-                        <canvas id="chartBig1"></canvas>
-                    </div>
+                <div class="card-body" style="width: 300px; height: 350px">
+                    <canvas id="homme-femme-chart"></canvas>
                 </div>
             </div>
         </div>
         <div class="col-6">
             <div class="card card-chart">
                 <div class="card-header">
-                    Chart 2
+                    Histogramme Tranche D'Ages
                 </div>
                 <div class="card-body">
-                    <div class="chart-area">
-                        <canvas id="chartBig1"></canvas>
-                    </div>
+                    <canvas id="tranche-age"></canvas>
                 </div>
             </div>
         </div>
