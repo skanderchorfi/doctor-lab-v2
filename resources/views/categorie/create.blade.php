@@ -7,7 +7,7 @@
                 <form action="{{ route('categorie.store') }}" method="post">
                     @csrf
                     <div class="card">
-                        <div class="card-header"><strong>Nouvelle Categorie</strong></div>
+                        <div class="card-header"><strong>type de diabéte</strong></div>
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-sm-12">

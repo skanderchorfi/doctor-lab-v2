@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\Data\HommeFemmeChart;
+use App\Http\Controllers\Data\NHLChart;
 use App\Http\Controllers\Data\TrancheAgeController;
+use App\Http\Controllers\DensityChartController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -78,3 +80,5 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::get('/data/homme-femme-chart', [HommeFemmeChart::class, 'data']);
 Route::get('/data/tranche-age', [TrancheAgeController::class, 'data']);
+Route::get('/data/density', [DensityChartController::class, 'data']);
+Route::get('/data/nhl', [NHLChart::class, 'data']);

@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <div class="card">
-                    <div class="card-header"><i class="fa fa-align-justify"></i> Liste des categories</div>
+                    <div class="card-header"><i class="fa fa-align-justify"></i> Liste des types de diabéte</div>
                     <div class="card-body">
                         <table class="table table-responsive-sm">
                             <thead>

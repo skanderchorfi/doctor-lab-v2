@@ -1047,47 +1047,6 @@ if(document.getElementById('article-delete')) {
 
 
 
-if(document.getElementById('homme-femme-chart')) {
-    console.log('hello ')
-    let ctx = document.getElementById('homme-femme-chart').getContext('2d');
-    axios.get('http://localhost:8000/data/homme-femme-chart')
-        .then(response => {
-            const {labels, data} = response.data
-            new Chart(ctx, {
-                type: 'pie',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: 'Repartition Hommes/Femmes',
-                        data: data,
-                        backgroundColor: [
-                            'rgba(255, 99, 132, 0.8)',
-                            'rgba(54, 162, 235, 0.8)',
-                        ],
-                        borderColor: [
-                            'rgba(255, 99, 132, 1)',
-                            'rgba(54, 162, 235, 1)',
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: {
-                        title: {
-                            display: true,
-                            text: 'Repartition Homme/Femmes'
-                        }
-                    }
-                }
-            })
-        }).catch(err => {
-            alert(err)
-        })
-
-}
-
-
 if(document.getElementById('tranche-age')) {
     let ctx = document.getElementById('tranche-age').getContext('2d');
     axios.get('http://localhost:8000/data/tranche-age')

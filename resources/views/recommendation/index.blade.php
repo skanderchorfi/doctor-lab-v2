@@ -12,17 +12,15 @@
                         <table class="table table-stripped">
                             <thead>
                                 <tr>
-                                    <th>Date</th>
-                                    <th>Heure</th>
+
                                     <th>Recommendation</th>
-                                    <th>tauxGL</th>
+                                    <th>Taux de glycémie</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($recommendations as $recommendation)
                                     <tr>
-                                        <td>{{ $recommendation->date }}</td>
-                                        <td>{{ $recommendation->heure }}</td>
+
                                         <td>{{ $recommendation->rec }}</td>
                                         <td>{{ $recommendation->tauxGL }}</td>
                                     </tr>

@@ -25,32 +25,38 @@
 
 <li class="c-sidebar-nav-item c-sidebar-nav-dropdown">
     <a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle c-active" href="#">
-        <i class="c-sidebar-nav-icon cil-task"></i> Categories
+        <i class="c-sidebar-nav-icon cil-task"></i> type de diabète
     </a>
     <ul class="c-sidebar-nav-dropdown-items">
         <li class="c-sidebar-nav-item">
             <a class="c-sidebar-nav-link" href="{{ route('categorie.create') }}">
-                <span class="c-sidebar-nav-icon cil-plus"></span> Ajouter Categorie
+                <span class="c-sidebar-nav-icon cil-plus"></span> Ajouter un type de diabète
             </a>
         </li>
         <li class="c-sidebar-nav-item">
             <a class="c-sidebar-nav-link" href="{{ route('categorie.index') }}">
-                <span class="c-sidebar-nav-icon cil-list"></span> Liste des Categories
+                <span class="c-sidebar-nav-icon cil-list"></span> Liste des types de diabète
             </a>
         </li>
     </ul>
 </li>
 
-<li class="c-sidebar-nav-item ">
-    <a class="c-sidebar-nav-link" href="{{ route('produit.type', ['type' => \App\Models\Produit::TYPE_2]) }}">
-        <i class="c-sidebar-nav-icon cil-pregnant"></i> Produits Pharmaceutique
+<li class="c-sidebar-nav-item c-sidebar-nav-dropdown">
+    <a class="c-sidebar-nav-link c-sidebar-nav-dropdown-toggle c-active" href="#">
+        <i class="c-sidebar-nav-icon cil-task"></i> Produits
     </a>
-</li>
-
-<li class="c-sidebar-nav-item ">
-    <a class="c-sidebar-nav-link" href="{{ route('produit.type', ['type' => \App\Models\Produit::TYPE_1]) }}">
-        <i class="c-sidebar-nav-icon cil-pregnant"></i> Produits Para-Pharmaceutique
-    </a>
+    <ul class="c-sidebar-nav-dropdown-items">
+        <li class="c-sidebar-nav-item">
+            <a class="c-sidebar-nav-link" href="{{ route('categorie.create') }}">
+                <span class="c-sidebar-nav-icon cil-plus"></span> Produit pharmaceutique
+            </a>
+        </li>
+        <li class="c-sidebar-nav-item">
+            <a class="c-sidebar-nav-link" href="{{ route('categorie.index') }}">
+                <span class="c-sidebar-nav-icon cil-list"></span> Produit Parapharmaceutique
+            </a>
+        </li>
+    </ul>
 </li>
 
 <li class="c-sidebar-nav-item ">

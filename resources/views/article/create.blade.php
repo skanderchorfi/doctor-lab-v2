@@ -19,8 +19,8 @@
                         <div class="row">
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <label for="categorie">Categorie</label>
-                                    <select name="categorie" id="categorie" class="form-control">
+                                    <label for="type">Categorie</label>
+                                    <select name="type" id="type" class="form-control">
                                         @foreach(\App\Models\Article::TYPES as $type)
                                             <option value="{{ $type }}">{{ $type }}</option>
                                         @endforeach

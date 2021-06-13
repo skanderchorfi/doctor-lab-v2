@@ -36,6 +36,7 @@ class ArticleController extends Controller
             'contenu' => 'required',
             'type' => 'required'
         ]);
+
         //$categorie = Categorie::find($request->categorie);
         $user = auth()->user();
 

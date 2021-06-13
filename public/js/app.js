@@ -2868,48 +2868,13 @@ if (document.getElementById('article-delete')) {
   });
 }
 
-if (document.getElementById('homme-femme-chart')) {
-  console.log('hello ');
-  var ctx = document.getElementById('homme-femme-chart').getContext('2d');
-  axios.get('http://localhost:8000/data/homme-femme-chart').then(function (response) {
+if (document.getElementById('tranche-age')) {
+  var ctx = document.getElementById('tranche-age').getContext('2d');
+  axios.get('http://localhost:8000/data/tranche-age').then(function (response) {
     var _response$data2 = response.data,
         labels = _response$data2.labels,
         data = _response$data2.data;
     new Chart(ctx, {
-      type: 'pie',
-      data: {
-        labels: labels,
-        datasets: [{
-          label: 'Repartition Hommes/Femmes',
-          data: data,
-          backgroundColor: ['rgba(255, 99, 132, 0.8)', 'rgba(54, 162, 235, 0.8)'],
-          borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)'],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          title: {
-            display: true,
-            text: 'Repartition Homme/Femmes'
-          }
-        }
-      }
-    });
-  })["catch"](function (err) {
-    alert(err);
-  });
-}
-
-if (document.getElementById('tranche-age')) {
-  var _ctx = document.getElementById('tranche-age').getContext('2d');
-
-  axios.get('http://localhost:8000/data/tranche-age').then(function (response) {
-    var _response$data3 = response.data,
-        labels = _response$data3.labels,
-        data = _response$data3.data;
-    new Chart(_ctx, {
       type: 'bar',
       data: {
         labels: labels,
