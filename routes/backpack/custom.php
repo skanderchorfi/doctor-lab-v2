@@ -27,4 +27,5 @@ Route::group([
     Route::get('charts/bar-tranche-age', 'Charts\BarTrancheAgeChartController@response')->name('charts.bar-tranche-age.index');
     Route::get('charts/repartition-utilisateur', 'Charts\RepartitionUtilisateurChartController@response')->name('charts.repartition-utilisateur.index');
     Route::get('charts/today-users', 'Charts\TodayUsersChartController@response')->name('charts.today-users.index');
+    Route::get('charts/produit-pie', 'Charts\ProduitPieChartController@response')->name('charts.produit-pie.index');
 }); // this should be the absolute last line of this file

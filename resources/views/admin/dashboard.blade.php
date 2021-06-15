@@ -22,7 +22,7 @@
             [
                 'type'        => 'progress',
                 'class'       => 'card text-white bg-warning mb-2',
-                'value'       => DB::connection('look4care')->table('patient')->where('problememedicaux', '1')->count(),
+                'value'       => DB::connection('look4care')->table('patient')->count(),
                 'description' => "Total des diabetiques",
                 'progress'    => 57,
             ],
@@ -40,11 +40,10 @@
         'class'   => 'row justify-content-center',
         'content' => [
             [ 'type' => 'chart', 'controller' => \App\Http\Controllers\Admin\Charts\NewEntriesChartController::class, 'wrapper' => ['class'=> 'col-md-12'] ],
-            [ 'type' => 'chart', 'controller' => \App\Http\Controllers\Admin\Charts\NHLPieChartChartController::class, 'wrapper' => ['class'=> 'col-md-4'] ],
-            [ 'type' => 'chart', 'controller' => \App\Http\Controllers\Admin\Charts\BarTrancheAgeChartController::class, 'wrapper' => ['class'=> 'col-md-8']],
             [ 'type' => 'chart', 'controller' => \App\Http\Controllers\Admin\Charts\RepartitionUtilisateurChartController::class, 'wrapper' => ['class'=> 'col-md-6']],
             [ 'type' => 'chart', 'controller' => \App\Http\Controllers\Admin\Charts\ArticlePartitionChartController::class, 'wrapper' => ['class'=> 'col-md-6']],
-            [ 'type' => 'chart', 'controller' => \App\Http\Controllers\Admin\Charts\TodayUsersChartController::class, 'wrapper' => ['class'=> 'col-md-6']]
+            [ 'type' => 'chart', 'controller' => \App\Http\Controllers\Admin\Charts\TodayUsersChartController::class, 'wrapper' => ['class'=> 'col-md-6']],
+            [ 'type' => 'chart', 'controller' => \App\Http\Controllers\Admin\Charts\ProduitPieChartController::class, 'wrapper' => ['class'=> 'col-md-6']]
         ]
     ]);
 @endphp

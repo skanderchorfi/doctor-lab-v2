@@ -27,7 +27,29 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header">
-                    <input type="range" name="mySlider" id=mySlider min="10" max="100" value="40">
+                    <div class="float-right">
+                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-density">
+                            Voir Plus
+                          </button>
+                    </div>
+                    <div class="modal fade" id="modal-density" tabindex="-1" role="dialog" aria-labelledby="modal-densityTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="modal-densityTitle">Modal title</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              ...
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div id="my_dataviz"></div>
@@ -38,6 +60,29 @@
             <div class="card">
                 <div class="card-header">
                     Diagramme NHL
+                    <div class="float-right">
+                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-nhl">
+                            Voir Plus
+                          </button>
+                    </div>
+                    <div class="modal fade" id="modal-nhl" tabindex="-1" role="dialog" aria-labelledby="modal-nhlTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="modal-nhlTitle">Modal title</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              ...
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div id="nhl-chart"></div>
@@ -50,9 +95,68 @@
             <div class="card">
                 <div class="card-header">
                     Diagramme Chord
+                    <div class="float-right">
+                        <a href="{{ route('stats.index') }}" class="btn btn-sm btn-success">Diagramme</a>
+                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-chord">
+                            Voir Plus
+                        </button>
+                    </div>
+                    <div class="modal fade" id="modal-chord" tabindex="-1" role="dialog" aria-labelledby="modal-chordTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="modal-chordTitle">Modal title</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              ...
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="card-body">
                     <div id="chord-chart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    Diagramme Voronoi
+                    <div class="float-right">
+                        <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modal-voronoi">
+                            Voir Plus
+                          </button>
+                    </div>
+                    <div class="modal fade" id="modal-voronoi" tabindex="-1" role="dialog" aria-labelledby="modal-voronoiTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="modal-voronoiTitle">Modal title</h5>
+                              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                            </div>
+                            <div class="modal-body">
+                              ...
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div id="voronoi-chart"></div>
                 </div>
             </div>
         </div>
@@ -62,6 +166,13 @@
             <div class="card card-tasks">
                 <div class="card-header ">
                     <h6 class="title d-inline">Articles</h6>
+                    <div class="float-right">
+                        <form action="{{ url('/recherche') }}" method="POST">
+                            @csrf
+                            <input type="text" name="auteur" id="auteur" class="form-control">
+                            <button type="submit" class="btn btn-sm btn-primary">rechercher</button>
+                        </form>
+                    </div>
                 </div>
                 <div class="card-body ">
                     <div class="table-responsive">
@@ -120,99 +231,62 @@
 @endsection
 
 @push('js')
-    <script>
-    var margin = {top: 30, right: 30, bottom: 30, left: 50},
-    width = 600 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+<script>
 
 
+    // set the dimensions and margins of the graph
+    var margin = {top: 10, right: 30, bottom: 30, left: 40},
+        width = 460 - margin.left - margin.right,
+        height = 400 - margin.top - margin.bottom;
+
+    // append the svg object to the body of the page
     var svg = d3.select("#my_dataviz")
-        .append("svg")
+      .append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
-        .append("g")
-        .attr("transform","translate(" + margin.left + "," + margin.top + ")");
+      .append("g")
+        .attr("transform",
+              "translate(" + margin.left + "," + margin.top + ")");
 
-
+    // read data
     axios.get('http://localhost:8000/data/density')
     .then(response => {
-        const {data} = response
-        console.log(data);
+        let {data} = response
+
         var x = d3.scaleLinear()
-                    .domain([0, 2000000])
-                    .range([0, width]);
+            .domain([1, 50])
+            .range([ margin.left, width - margin.right ]);
+
         svg.append("g")
-            .attr("transform", "translate(10," + (height + 0) + ")")
+            .attr("transform", "translate(0," + height + ")")
             .call(d3.axisBottom(x));
 
-        // add the y Axis
         var y = d3.scaleLinear()
-                    .range([height, 0])
-                    .domain([0, 0.01]);
+            .domain([1, 50])
+            .range([ height - margin.bottom, margin.top ]);
+
         svg.append("g")
-        .attr("transform", "translateY(10," + (width + 10) + ")")
             .call(d3.axisLeft(y));
 
-        // Compute kernel density estimation
-        var kde = kernelDensityEstimator(kernelEpanechnikov(4), x.ticks(50))
-        var density =  kde( data.map(function(d){  return d.population; }) )
+        var color = d3.scaleLinear()
+                .domain([0, 0.1])
+                .range(["#69b3a2", "#69b3fe", "#69a4fe", "#89b4f5"])
 
-        // Plot the area
-        var curve = svg
-            .append('g')
-            .append("path")
-            .attr("class", "mypath")
-            .datum(density)
-            .attr("fill", "#69b3a2")
-            .attr("opacity", ".8")
-            .attr("stroke", "#000")
-            .attr("stroke-width", 1)
-            .attr("stroke-linejoin", "round")
-            .attr("d",  d3.line()
-                .curve(d3.curveBasis)
-                .x(function(d) { return x(d[0]); })
-                .y(function(d) { return y(d[1]); })
-            );
+        // compute the density data
+        var densityData = d3.contourDensity()
+            .x(function(d) { return x(d.latitude); })
+            .y(function(d) { return y(d.longitude); })
+            .size([width, height])
+            .bandwidth(20)(data)
 
-            // A function that update the chart when slider is moved?
-            function updateChart(binNumber) {
-                kde = kernelDensityEstimator(kernelEpanechnikov(10), x.ticks(binNumber))
-                density =  kde( data.map(function(d){  return d.population; }) )
-                console.log(binNumber)
-                console.log(density)
-
-                // update the chart
-                curve
-                .datum(density)
-                .transition()
-                .duration(1000)
-                .attr("d",  d3.line()
-                    .curve(d3.curveBasis)
-                    .x(function(d) { return x(d[0]); })
-                    .y(function(d) { return y(d[1]); })
-                );
-            }
-            d3.select("#mySlider").on("change", function(d){
-                    selectedValue = this.value
-                updateChart(selectedValue)
+      // show the shape!
+        svg.insert("g", "g")
+            .selectAll("path")
+            .data(densityData)
+            .enter().append("path")
+            .attr("d", d3.geoPath())
+            .attr("fill", function(d) { return color(d.value); })
     })
-    }).catch(err => {
-        alert(err)
-    })
-
-
-    function kernelDensityEstimator(kernel, X) {
-    return function(V) {
-            return X.map(function(x) {
-                return [x, d3.mean(V, function(v) { return kernel(x - v); })];
-            });
-        };
-    }
-    function kernelEpanechnikov(k) {
-        return function(v) {
-            return Math.abs(v /= k) <= 1 ? 0.75 * (1 - v * v) / k : 0;
-        };
-    }
     </script>
     <script>
         google.charts.load('current', {'packages':['corechart']});
@@ -278,28 +352,9 @@
                         .attr("height", 440)
                         .append("g")
                         .attr("transform", "translate(220,220)")
-
             var res = d3.chord()
-                .padAngle(0.05)     // padding between entities (black arc)
-                .sortSubgroups(d3.descending)
-                (matrix)
-
-
-            svg
-                .datum(res)
-                .append("g")
-                .selectAll("g")
-                .data(function(d) { return d.groups; })
-                .enter()
-                .append("g")
-                .append("path")
-                    .style("fill", function(d,i){ return colors[i] })
-                    .style("stroke", "black")
-                    .attr("d", d3.arc()
-                        .innerRadius(200)
-                        .outerRadius(210)
-                    )
-
+                .padAngle(0.05)
+                .sortSubgroups(d3.descending)(matrix)
             svg
                 .datum(res)
                 .append("g")
@@ -307,75 +362,117 @@
                 .data(function(d) { return d; })
                 .enter()
                 .append("path")
-                    .attr("d", d3.ribbon().radius(200))
-                    .style("fill", function(d){ return(colors[d.source.index]) })
-                    .style("stroke", "black");
-            // this group object use each group of the data.groups object
-            var group = svg
-            .datum(res)
-            .append("g")
-            .selectAll("g")
-            .data(function(d) { return d.groups; })
-            .enter()
+                    .attr("d", d3.ribbon()
+                    .radius(190)
+                    )
+                .style("fill", function(d){ return(colors[d.source.index]) })
+                .style("stroke", "black");
 
-            // add the group arcs on the outer part of the circle
+            var group = svg
+                .datum(res)
+                .append("g")
+                .selectAll("g")
+                .data(function(d) { return d.groups; })
+                .enter()
+
             group.append("g")
                 .append("path")
-                .style("fill", "white")
+                .style("fill", "grey")
                 .style("stroke", "black")
                 .attr("d", d3.arc()
                 .innerRadius(190)
                 .outerRadius(200)
                 )
 
-            group.append("svg:text")
-                .each(function(d) { d.angle = (d.startAngle + d.endAngle) / 2; })
-                .attr("dy", ".35em")
-                .attr("class", "titles")
-                .attr("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
-                .attr("transform", function(d) {
-		            return "rotate(" + (d.angle * 180 / Math.PI - 90) + ")"
-		                + "translate(" + (innerRadius + 55) + ")"
-		                + (d.angle > Math.PI ? "rotate(180)" : "");
-                })
-                .attr('opacity', 0)
-                .text(function(d,i) { return NameProvider[i]; });
-
             group
-            .selectAll(".group-tick")
-            .data(function(d) { return groupTicks(d, 25); })    // Controls the number of ticks: one tick each 25 here.
-            .enter()
-            .append("g")
+                .selectAll(".group-tick")
+                .data(function(d) { return groupTicks(d, 25); })    // Controls the number of ticks: one tick each 25 here.
+                .enter()
+                .append("g")
                 .attr("transform", function(d) { return "rotate(" + (d.angle * 180 / Math.PI - 90) + ") translate(" + 200 + ",0)"; })
-            .append("line")               // By default, x1 = y1 = y2 = 0, so no need to specify it.
+                .append("line")               // By default, x1 = y1 = y2 = 0, so no need to specify it.
                 .attr("x2", 6)
-                .attr("stroke", "white")
+                .attr("stroke", "black")
 
-            // Add the labels of a few ticks:
             group
-            .selectAll(".group-tick-label")
-            .data(function(d) { return groupTicks(d, 25); })
-            .enter()
-            .filter(function(d) { return d.value % 25 === 0; })
-            .append("g")
+                .selectAll(".group-tick-label")
+                .data(function(d) { return groupTicks(d, 25); })
+                .enter()
+                .filter(function(d) { return d.value % 25 === 0; })
+                .append("g")
                 .attr("transform", function(d) { return "rotate(" + (d.angle * 180 / Math.PI - 90) + ") translate(" + 200 + ",0)"; })
-            .append("text")
+                .append("text")
                 .attr("x", 8)
                 .attr("dy", ".35em")
                 .attr("transform", function(d) { return d.angle > Math.PI ? "rotate(180) translate(-16)" : null; })
                 .style("text-anchor", function(d) { return d.angle > Math.PI ? "end" : null; })
                 .text(function(d) { return d.value })
-                .style("font-size", 9)
+                .style("font-size", 12)
 
 
-                // Returns an array of tick angles and values for a given group and step.
-                function groupTicks(d, step) {
+            function groupTicks(d, step) {
                 var k = (d.endAngle - d.startAngle) / d.value;
                 return d3.range(0, d.value, step).map(function(value) {
                     return {value: value, angle: value * k + d.startAngle};
                 });
             }
 
+        })
+    </script>
+    <script>
+        var w = 800,
+        h = 400;
+
+        axios.get('http://localhost:8000/data/voronoi')
+        .then(response => {
+            let {data} = response
+            data = [
+      [22.7433333333000,  53.4869444444000],
+      [23.2530555556000,  53.5683333333000],
+      [23.1066666667000,  53.7200000000000],
+      [22.8452777778000,  53.7758333333000],
+      [23.0952777778000,  53.4413888889000],
+      [23.4152777778000,  53.5233333333000],
+      [22.9175000000000,  53.5322222222000],
+      [22.7197222222000,  53.7322222222000],
+      [22.9586111111000,  53.4594444444000],
+      [23.3425000000000,  53.6541666667000],
+      [23.0900000000000,  53.5777777778000],
+      [23.2283333333000,  53.4713888889000],
+      [23.3488888889000,  53.5072222222000],
+      [23.3647222222000,  53.6447222222000]
+    ];
+            var vertices = data.map(function(point) {return [2*h*(point[0]-22.5), h - 2*h*(point[1]-53.4)]})
+
+            var svg = d3.select("#voronoi-chart")
+                .append("svg:svg")
+                .attr("width", w)
+                .attr("height", h);
+
+            var paths, points;
+
+            points = svg.append("svg:g").attr("id", "points");
+            paths = svg.append("svg:g").attr("id", "point-paths");
+
+            paths.selectAll("path")
+                .data(d3.geom.voronoi(vertices))
+                .enter().append("svg:path")
+            .attr("d", function(d) { return "M" + d.join(",") + "Z"; })
+            .attr("id", function(d,i) {
+            return "path-"+i; })
+            .attr("clip-path", function(d,i) { return "url(#clip-"+i+")"; })
+            .style("fill", d3.rgb(230, 230, 230))
+            .style('fill-opacity', 0.4)
+            .style("stroke", d3.rgb(50,50,50));
+
+            points.selectAll("circle")
+                .data(vertices)
+                .enter().append("svg:circle")
+                .attr("id", function(d, i) {
+                    return "point-"+i; })
+                .attr("transform", function(d) { return "translate(" + d + ")"; })
+                .attr("r", 2)
+                .attr('stroke', d3.rgb(0, 50, 200));
         })
     </script>
 @endpush

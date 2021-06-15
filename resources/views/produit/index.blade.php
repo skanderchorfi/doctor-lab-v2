@@ -8,7 +8,7 @@
                     <div class="card">
                         <div class="card-header">{{$produit->nom}}<span class="badge badge-success float-right">{{ $produit->type }}</span></div>
                         <div class="card-body">
-                            <img src="{{'/storage/produit/'. $produit->image }}" alt="" width="350px">
+                            <img src="{{'/storage/produit/'. $produit->image }}" alt="" width="350px" height="300px">
                         </div>
                         <div class="card-footer">
                             {{ $produit->description }}

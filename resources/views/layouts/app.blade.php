@@ -80,9 +80,14 @@
         <script src="{{ asset('black') }}/js/black-dashboard.min.js?v=1.0.0"></script>
         <script src="{{ asset('black') }}/js/theme.js"></script>
         <script src="https://d3js.org/d3.v4.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/2.7.4/d3.geom.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
         <script src="{{ mix('js/app.js') }}"></script>
+        <script src="https://d3js.org/d3.v4.js"></script>
+        
+        <script src="https://d3js.org/d3-contour.v1.min.js"></script>
         @stack('js')
 
         <script>

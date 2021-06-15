@@ -29,6 +29,20 @@ class ArticleController extends Controller
         return view('article.create');
     }
 
+    public function edit(Request $request, Article $article) {
+        return view('article.edit', compact('article'));
+    }
+
+    public function update(Request $request) {
+        $article = Article::find($request->article);
+
+        $article->update(
+            $request->all()
+        );
+
+        return redirect()->route('article.index')->with('status', 'Article mise a jour avec success');
+    }
+
     public function store(Request $request)
     {
         $this->validate($request, [

@@ -85,7 +85,8 @@ class RegisterController extends Controller
         if ($user->active == false)
         {
             Auth::logout();
-            return redirect()->to('/');
+            return redirect()->to('/login')
+                ->with('status', 'Compte en attente d approuvation');
         }
     }
 }

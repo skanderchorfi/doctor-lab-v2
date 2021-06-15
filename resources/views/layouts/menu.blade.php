@@ -60,13 +60,6 @@
 </li>
 
 <li class="c-sidebar-nav-item ">
-    <a class="c-sidebar-nav-link" href="{{ route('stats.index') }}">
-        <i class="c-sidebar-nav-icon cil-star"></i> Statistique
-    </a>
-</li>
-
-
-<li class="c-sidebar-nav-item ">
     <a class="c-sidebar-nav-link" href="{{ route('recommendation.index') }}">
         <i class="c-sidebar-nav-icon cil-list"></i> Recommendations
     </a>

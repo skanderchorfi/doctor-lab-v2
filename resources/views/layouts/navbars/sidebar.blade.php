@@ -38,7 +38,7 @@
             <li>
                 <a data-toggle="collapse" href="#categories" aria-expanded="true">
                     <i class="fa fa-book" ></i>
-                    <span class="nav-link-text" >{{ __('Categories') }}</span>
+                    <span class="nav-link-text" >{{ __('Type de Diabetes') }}</span>
                     <b class="caret mt-1"></b>
                 </a>
 
@@ -47,35 +47,41 @@
                         <li>
                             <a href="{{ route('categorie.create')  }}">
                                 <i class="fa fa-plus"></i>
-                                <p>{{ __('Ajouter Categorie') }}</p>
+                                <p>{{ __('Ajouter Type') }}</p>
                             </a>
                         </li>
                         <li>
                             <a href="{{ route('categorie.index')  }}">
                                 <i class="tim-icons icon-bullet-list-67"></i>
-                                <p>{{ __('Liste des Categories') }}</p>
+                                <p>{{ __('Types des Diabetes') }}</p>
                             </a>
                         </li>
                     </ul>
                 </div>
             </li>
             <li>
-                <a href="{{ route('produit.type', ['type' => \App\Models\Produit::TYPE_2]) }}">
-                    <i class="fa fa-pregnant"></i>
-                    Produits Pharmacetique
+                <a data-toggle="collapse" href="#produits" aria-expanded="true">
+                    <i class="fa fa-book" ></i>
+                    <span class="nav-link-text" >{{ __('Produits') }}</span>
+                    <b class="caret mt-1"></b>
                 </a>
-            </li>
-            <li>
-                <a href="{{ route('produit.type', ['type' => \App\Models\Produit::TYPE_1]) }}">
-                    <i class="fa fa-pregnant"></i>
-                    Produits Para-Pharmacetique
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('stats.index') }}">
-                    <i class="fa fa-stat"></i>
-                    Statistiques
-                </a>
+
+                <div class="collapse show" id="produits">
+                    <ul class="nav pl-4">
+                        <li>
+                            <a href="{{ route('produit.type', ['type' => \App\Models\Produit::TYPE_2]) }}">
+                                <i class="fa fa-pregnant"></i>
+                                Produits Pharmacetique
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('produit.type', ['type' => \App\Models\Produit::TYPE_1]) }}">
+                                <i class="fa fa-pregnant"></i>
+                                Produits Para-Pharmacetique
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </li>
             <li>
                 <a href="{{ route('recommendation.index') }}">
